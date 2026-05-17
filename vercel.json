@@ -47,18 +47,7 @@
       "source": "/404",
       "destination": "/404.html"
     },
-    {
-      "source": "/ads.txt",
-      "destination": "/ads.txt"
-    },
-    {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
-    },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
-    },
+
     {
       "source": "/:category([^.]+)",
       "destination": "/index.html"
