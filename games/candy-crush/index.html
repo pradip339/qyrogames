@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/games/candy-crush/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Candy Crush | Sweet Match-3 Game</title>
+    <meta name="description"
+        content="Play the sweetest match-3 puzzle game, Candy Crush! Swipe and match colorful candies to clear levels and reach the top score." />
+    <meta name="keywords"
+        content="candy crush, match-3 game, sweet puzzle game, crush candies, colorful match 3, free candy crush game" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="A colorful Candy Crush match-3 puzzle game">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="candy_crush_small.webp">
+
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+
+
+    <div id="screen-menu" class="screen active">
+        <div class="menu-bg"></div>
+        <div class="menu-content">
+            <div class="menu-logo">
+                <div class="logo-candy c1">🔴</div>
+                <div class="logo-candy c2">🟠</div>
+                <div class="logo-candy c3">🟡</div>
+                <div class="logo-candy c4">🍀</div>
+                <div class="logo-candy c5">💎</div>
+            </div>
+            <h1 class="title">Candy<br><span>Crush</span></h1>
+            <p class="tagline">Match 3 or more candies!</p>
+            <button id="btn-play" class="menu-btn play-btn">▶ PLAY</button>
+            <button id="btn-endless" class="menu-btn endless-btn">∞ ENDLESS</button>
+            <div class="high-score-box">
+                🏆 Best: <span id="menu-high">0</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="screen-game" class="screen">
+
+        <div id="hud">
+            <div class="hud-left">
+                <div class="hud-stat score-stat">
+                    <div class="stat-icon">🍬</div>
+                    <div class="stat-info">
+                        <div class="stat-label">SCORE</div>
+                        <div id="hud-score" class="stat-val score-val">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hud-center">
+                <div id="hud-level" class="level-pill">Level 1</div>
+                <div class="progress-wrap">
+                    <div class="progress-track">
+                        <div id="target-bar" class="progress-fill"></div>
+                    </div>
+                    <div class="progress-stars">
+                        <span class="p-star s1">⭐</span>
+                        <span class="p-star s2">⭐</span>
+                        <span class="p-star s3">⭐</span>
+                    </div>
+                </div>
+                <div id="hud-target" class="target-text">Goal: 1,000</div>
+            </div>
+            <div class="hud-right">
+                <div class="hud-stat moves-stat">
+                    <div class="stat-icon">👆</div>
+                    <div class="stat-info">
+                        <div class="stat-label">MOVES</div>
+                        <div id="hud-moves" class="stat-val moves-val">30</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="board-wrap">
+            <canvas id="board-canvas"></canvas>
+        </div>
+
+
+        <div id="floats"></div>
+
+
+        <div id="combo-popup"></div>
+
+
+        <div id="hint-label">💡 Hint Available</div>
+
+
+        <div id="bottom-bar">
+            <button id="btn-hint" class="bar-btn hint-btn">
+                <span class="bar-icon">💡</span>
+                <span class="bar-label">Hint</span>
+            </button>
+            <button id="btn-sound" class="bar-btn sound-btn">
+                <span class="bar-icon" id="sound-icon">🔊</span>
+                <span class="bar-label" id="sound-label">Sound</span>
+            </button>
+            <button id="btn-quit" class="bar-btn quit-btn">
+                <span class="bar-icon">🏠</span>
+                <span class="bar-label">Menu</span>
+            </button>
+        </div>
+    </div>
+
+
+    <div id="screen-over" class="screen">
+        <div class="over-content">
+            <h2 class="over-title">Game Over!</h2>
+            <div class="over-score">
+                <div class="over-label">Score</div>
+                <div id="over-score-val" class="over-val">0</div>
+            </div>
+            <div class="over-best">
+                <div class="over-label">Best</div>
+                <div id="over-best-val" class="over-best-num">0</div>
+            </div>
+            <button id="btn-retry" class="menu-btn play-btn">↻ RETRY</button>
+            <button id="btn-home" class="menu-btn endless-btn">⌂ MENU</button>
+        </div>
+    </div>
+
+
+    <div id="screen-level" class="screen">
+        <div class="over-content">
+            <h2 class="level-complete-title">Sweet!</h2>
+            <div class="stars-row" id="stars-row">
+                <span class="lv-star" id="star1">★</span>
+                <span class="lv-star" id="star2">★</span>
+                <span class="lv-star" id="star3">★</span>
+            </div>
+            <div class="over-score">
+                <div class="over-label">Score</div>
+                <div id="lv-score-val" class="over-val">0</div>
+            </div>
+            <button id="btn-next" class="menu-btn play-btn">▶ NEXT LEVEL</button>
+            <button id="btn-lv-home" class="menu-btn endless-btn">⌂ MENU</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

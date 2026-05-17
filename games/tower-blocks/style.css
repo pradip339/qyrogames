@@ -1,0 +1,361 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Orbitron:wght@400;700;900&display=swap");
+
+body {
+  margin: 0;
+  background-color: #000;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Exo 2", sans-serif;
+  color: #e2e8f0;
+}
+
+#container {
+  position: relative;
+  width: min(100vw, 56.25vh);
+  
+  height: 100vh;
+  background: radial-gradient(circle at 50% 30%, #1e1b4b 0%, #0f172a 100%);
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+#game {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#game canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#score {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  font-size: 5rem;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  color: #fbbf24;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+  transition: transform 0.5s ease;
+  transform: translateY(-200px) scale(1);
+  pointer-events: none;
+  z-index: 10;
+}
+
+#instructions {
+  display: none;
+}
+
+#instructions.hide {
+  opacity: 0 !important;
+}
+
+.game-ready {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.4);
+  z-index: 30;
+  pointer-events: auto;
+  transition: opacity 0.5s ease;
+}
+
+#start-button {
+  pointer-events: auto;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  background: #6366f1;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  transition: all 0.2s ease, transform 0.5s ease;
+  transform: translateY(-50px);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: pulse 2s infinite;
+}
+
+#start-button:hover {
+  background: #4f46e5;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(79, 70, 229, 0.6);
+}
+
+#start-button:active {
+  transform: scale(0.95);
+}
+
+#container.playing .game-ready,
+#container.ended .game-ready {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  align-items: center;
+  gap: 2rem;
+  
+  background: rgba(10, 15, 30, 0.6);
+  
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  box-sizing: border-box;
+}
+
+.game-over h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+  background: linear-gradient(to bottom, #ef4444, #b91c1c);
+  
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+}
+
+.game-over .message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 10rem;
+  
+  width: 100%;
+}
+
+.game-over p {
+  font-size: 1.1rem;
+  color: #e2e8f0;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.game-over .action-text {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  background: #6366f1;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: pulse 2s infinite;
+  cursor: pointer;
+  pointer-events: auto;
+  
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.7);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  }
+}
+
+#container.playing #score,
+#container.resetting #score {
+  transform: translateY(0) scale(1);
+}
+
+#container.playing #instructions {
+  opacity: 1;
+}
+
+#container.ready #start-button {
+  transform: translateY(0);
+}
+
+#container.ended #score {
+  
+  top: 40%;
+  transform: translateY(-50%) scale(1.2);
+  
+  z-index: 60;
+  
+  color: #fbbf24;
+  text-shadow: 0 0 40px rgba(251, 191, 36, 0.8), 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+#container.ended .game-over {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#container.ended .game-over * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.controls-ui {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  
+  z-index: 200;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  pointer-events: auto;
+  user-select: none;
+}
+
+.icon-btn:hover {
+  background: rgba(99, 102, 241, 0.35);
+  transform: scale(1.12);
+  box-shadow: 0 0 14px rgba(99, 102, 241, 0.55);
+}
+
+.icon-btn:active {
+  transform: scale(0.93);
+}
+
+.icon-btn.muted {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+.icon-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  pointer-events: none;
+}
+
+#btn-pause {
+  width: 0;
+  min-width: 0;
+  margin-left: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  
+  transition: width 0.3s ease, margin-left 0.3s ease, opacity 0.3s ease;
+}
+
+#container.playing #btn-pause {
+  width: 40px;
+  min-width: 40px;
+  margin-left: 10px;
+  opacity: 1;
+  overflow: visible;
+  pointer-events: auto;
+}
+
+.pause-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.pause-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pause-overlay h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 3rem;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.resume-btn {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5rem;
+  padding: 1rem 3rem;
+  color: #fff;
+  background: #10b981;
+  border-radius: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+  border: none;
+  transition: all 0.2s;
+}
+
+.resume-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.7);
+}

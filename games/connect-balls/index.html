@@ -1,0 +1,154 @@
+﻿<html>
+
+<head>
+    <base href="/games/connect-balls/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Connect Balls | Fun Puzzle Game</title>
+  <meta name="description"
+    content="Connect matching balls in this fun and addictive puzzle game. Create long chains of colorful balls to clear the board!" />
+  <meta name="keywords"
+    content="connect balls game, match color balls, chain puzzle, casual linking game, browser puzzle game, free unblocked games" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/puyo.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <script src="js/jquery.min.js"></script>
+
+  <script type="text/javascript" src="js/bundle.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/script.js" charset="utf-8"></script>
+
+  <link rel="short icon" href="images/appicon.png">
+
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Days+One" rel="stylesheet">
+  <link rel="icon" href="connect_balls_small.webp">
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+
+  <div id="preloader">
+    <div class="loader"></div>
+    <div class="loader-text">LOADING Connect Balls...</div>
+  </div>
+
+  <div class="particles" id="particles"></div>
+  <section class="whole-container">
+    <section class="title"></section>
+    <main>
+      <section class="game-info-container">
+        <ul class="buttons">
+          <button type="button" id="pause-button">
+            <i class="fa fa-pause-circle-o fa-fw fa-3x"></i>
+          </button>
+          <button type="button" id="restart-button">
+            <div class="restart-text">
+              Restart
+            </div>
+            <i class="fa fa-power-off fa-fw fa-3x"></i>
+          </button>
+          <button type="button" id="mute-button">
+            <i id="sound-icon" class="fa fa-volume-up fa-fw fa-3x"></i>
+          </button>
+        </ul>
+        <section class="stats">
+        </section>
+        <div class="keys-instruction">
+          <div>
+            <i class="fa fa-keyboard-o fa-fw fa-2x"></i> Key
+          </div>
+          <div>
+            <i class="fa fa-arrow-left fa-fw fa-1x"></i>: Move left
+          </div>
+          <div>
+            <i class="fa fa-arrow-right fa-fw fa-1x"></i>: Move right
+          </div>
+          <div>
+            <i class="fa fa-arrow-down fa-fw fa-1x"></i>: Quick Drop
+          </div>
+          <div>
+            " " : Rotate Ball
+          </div>
+        </div>
+      </section>
+      <section class="puyo-container">
+        <canvas id="puyo-canvas"></canvas>
+        <div class="next-piece-board">
+          <div id="score" class="score-board">
+            0
+          </div>
+          <div class="next-text">
+            Next
+          </div>
+          <canvas id="next-puyo-canvas"></canvas>
+        </div>
+      </section>
+    </main>
+  </section>
+
+  <div id="modal-container" class="modal" onclick="dispatchKey(13)">
+
+    <div id="start-text" class="modal-content">
+      <h3>Introduction</h3>
+      <p>Welcome to Four in one row/colum.</p>
+      <p>The goal is simple. Survive as long as you can!</p>
+      <p>Four or more of the same color bubbles to clear them.</p>
+      <p>As time goes, the speed of the Balls dropping will get faster.</p>
+      <button class="play-symbol">
+        <i class="fa fa-gamepad fa-fw fa-2x"></i> How to play
+      </button>
+      <ul> <br>
+        <li>The goal is simple. Survive as long as you can!</li>
+        <br>
+        <li>Four or more of the same color bubbles to clear them</li>
+        <br>
+        <li>As time goes, the speed of the Balls dropping will get faster</li>
+        <br>
+        <li>Good luck!</li>
+      </ul>
+      <p class="enter-to-play">Tap anywhere or press <span>Enter</span> to start!</p>
+      <br>
+    </div>
+
+    <div id="end-text" class="end-modal-content">
+      <h1>GAME OVER!</h1>
+      <p class="enter-to-play">Tap anywhere or press <span>Enter</span> to restart!</p>
+    </div>
+  </div>
+  <audio id="bgm" loop="true" src="media/puyo-puyo-music.mp3">
+    <audio id="game-over-music" loop="true" src="media/game-over.mp3">
+
+    </audio></audio>
+
+  <div id="mobile-controls">
+    <div class="mobile-control-row">
+      <button class="mobile-btn" onmousedown="dispatchKey(37)"
+        ontouchstart="dispatchKey(37); event.preventDefault();"><i class="fa fa-arrow-left"></i></button>
+      <button class="mobile-btn" onmousedown="dispatchKey(40)"
+        ontouchstart="dispatchKey(40); event.preventDefault();"><i class="fa fa-arrow-down"></i></button>
+      <button class="mobile-btn" onmousedown="dispatchKey(39)"
+        ontouchstart="dispatchKey(39); event.preventDefault();"><i class="fa fa-arrow-right"></i></button>
+      <button class="mobile-btn action-btn" onmousedown="dispatchKey(32)"
+        ontouchstart="dispatchKey(32); event.preventDefault();"><i class="fa fa-repeat"></i></button>
+    </div>
+    <div class="mobile-control-row">
+      <button class="mobile-btn start-btn" onmousedown="dispatchKey(13)"
+        ontouchstart="dispatchKey(13); event.preventDefault();"><b>TAP TO START / RESTART</b></button>
+    </div>
+  </div>
+  <script>
+    function dispatchKey(keyCode) {
+      var e = document.createEvent('Event');
+      e.initEvent('keydown', true, true);
+      e.which = keyCode;
+      e.keyCode = keyCode;
+      document.dispatchEvent(e);
+    }
+  </script>
+</body>
+
+</html>

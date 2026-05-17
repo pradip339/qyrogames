@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/games/tower-blocks/">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,user-scalable=no" />
+  <script src="https://codepen.io/steveg3003/pen/zBVakw"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Orbitron:wght@400;700;900&display=swap"
+    rel="stylesheet">
+  <title>Tower Blocks | 3D Stacking Game</title>
+  <meta name="description"
+    content="Build the highest tower possible in Tower Blocks! Drop the blocks at the exact right moment to construct a stable 3D skyscraper." />
+  <meta name="keywords"
+    content="tower blocks game, 3D stacking game, tower building game, block stack puzzle, precision arcade, HTML5 construction game" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="stylesheet" href="/games/tower-blocks/style.css" />
+  <link rel="icon" href="tower_block_small.webp">
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <h1
+      style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+      Tower Blocks</h1>
+    <div id="game"></div>
+    <div id="score">0</div>
+    <div id="instructions">
+      Click (or press the spacebar) to place the block
+    </div>
+    <div class="game-over">
+      <h2>Game Over</h2>
+      <div class="message-container">
+        <p>You did great, you're the best.</p>
+        <div class="action-text">Play Again</div>
+      </div>
+    </div>
+    <div class="game-ready">
+      <div id="start-button">Start</div>
+      <div></div>
+    </div>
+
+
+    <div class="controls-ui">
+
+      <div id="btn-sound" class="icon-btn" title="Toggle Sound">
+        <svg id="icon-sound-on" viewBox="0 0 24 24">
+          <path
+            d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+        </svg>
+        <svg id="icon-sound-off" viewBox="0 0 24 24" style="display:none">
+          <path
+            d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51c.66-1.24 1.03-2.65 1.03-4.15 0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+        </svg>
+      </div>
+
+      <div id="btn-pause" class="icon-btn" title="Pause">
+        <svg viewBox="0 0 24 24">
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="pause-overlay">
+      <h2>Paused</h2>
+      <button id="btn-resume" class="resume-btn">Resume</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

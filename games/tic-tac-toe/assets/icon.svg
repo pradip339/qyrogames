@@ -1,0 +1,15 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="512" height="512" rx="64" fill="#1f2c8f"/>
+<!-- Grid -->
+<path d="M185 80V432" stroke="white" stroke-width="20" stroke-linecap="round"/>
+<path d="M327 80V432" stroke="white" stroke-width="20" stroke-linecap="round"/>
+<path d="M80 185H432" stroke="white" stroke-width="20" stroke-linecap="round"/>
+<path d="M80 327H432" stroke="white" stroke-width="20" stroke-linecap="round"/>
+
+<!-- X in Center -->
+<path d="M220 220L292 292" stroke="white" stroke-width="32" stroke-linecap="round"/>
+<path d="M292 220L220 292" stroke="white" stroke-width="32" stroke-linecap="round"/>
+
+<!-- O in Bottom Right -->
+<circle cx="390" cy="390" r="45" stroke="#ffca28" stroke-width="32"/>
+</svg>

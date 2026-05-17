@@ -1,0 +1,403 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 120%, #0074D9, #001f3f 80%);
+    
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+#app {
+    width: 100vw;
+    height: 100%;
+    max-height: 100dvh;
+    
+    background: radial-gradient(circle at 50% 120%, #0074D9, #001f3f 80%);
+    
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    touch-action: none;
+    
+}
+
+@supports (-webkit-touch-callout: none) {
+    #app {
+        height: -webkit-fill-available;
+    }
+}
+
+.top-bar {
+    height: 70px;
+    
+    background: linear-gradient(180deg, #5D2906 0%, #3E1C03 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    border-bottom: 3px solid #DAA520;
+}
+
+.controls-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.icon-btn {
+    background: linear-gradient(135deg, #FF4500, #8B0000);
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    color: #FFF;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4), inset 0 2px 5px rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s;
+}
+
+.icon-btn:active {
+    transform: scale(0.95);
+}
+
+.level-display {
+    text-align: center;
+    background: #3E1C03;
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 2px solid #A0522D;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.stars {
+    color: #FFD700;
+    font-size: 0.8rem;
+    line-height: 1;
+    text-shadow: 0 1px 2px #000;
+}
+
+.level-text {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #FFE4B5;
+    text-transform: uppercase;
+}
+
+.score-display {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    color: #FFD700;
+    text-shadow: 2px 2px 0 #3E1C03;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+#game-container {
+    flex-grow: 1;
+    position: relative;
+    background: transparent;
+    
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.bottom-bar {
+    height: 80px;
+    background: url('wood_texture.png'), linear-gradient(to top, #8B4513, #5D2906);
+    
+    border-top: 3px solid #3E1C03;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.launcher-area {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.swap-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFE4B5;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.swap-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF69B4, #C71585);
+    display: flex;
+    justify-content: center;
+    
+    align-items: center;
+    
+    color: white;
+    font-size: 1.5rem;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    transition: transform 0.1s;
+}
+
+.swap-circle:active {
+    transform: scale(0.9);
+}
+
+.moves-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFE4B5;
+    font-size: 0.8rem;
+}
+
+#moves {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    
+    padding: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.wood-panel {
+    background: linear-gradient(135deg, #A0522D, #8B4513), url('wood_texture.png');
+    padding: 30px;
+    border-radius: 20px;
+    border: 4px solid #DEB887;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3rem;
+    color: #FFD700;
+    text-shadow: 3px 3px 0 #8B0000;
+    margin-bottom: 30px;
+    line-height: 1.1;
+}
+
+.gamcae-logo {
+    width: 150px;
+    height: 150px;
+
+    
+    background:
+        
+        radial-gradient(circle at 40% 30%, rgba(255, 255, 255, 0.9) 0%, transparent 15%),
+        
+        radial-gradient(circle at 75% 65%, rgba(255, 255, 255, 0.7) 0%, transparent 15%),
+        
+
+        
+        radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.8) 0%, transparent 20%),
+        
+        radial-gradient(circle at 50% 35%, #FF4136 0%, #8B0000 100%),
+
+        
+        radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.8) 0%, transparent 20%),
+        
+        radial-gradient(circle at 25% 75%, #2ECC40 0%, #006400 100%),
+
+        
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.8) 0%, transparent 20%),
+        
+        radial-gradient(circle at 75% 75%, #0074D9 0%, #001F3F 100%),
+
+        
+        linear-gradient(135deg, rgba(160, 82, 45, 0.9), rgba(139, 69, 19, 0.9)),
+        url('wood_texture.png');
+
+    background-size:
+        100% 100%, 100% 100%,
+        
+        50px 50px, 50px 50px,
+        
+        50px 50px, 50px 50px,
+        
+        50px 50px, 50px 50px,
+        
+        100% 100%, cover;
+
+    background-position:
+        0 0, 0 0,
+        50px 10px, 50px 10px,
+        
+        15px 80px, 15px 80px,
+        
+        85px 80px, 85px 80px,
+        
+        0 0, 0 0;
+
+    background-repeat: no-repeat;
+
+    border: 6px solid #FFD700;
+    
+    box-shadow:
+        0 0 15px #FFD700,
+        
+        0 20px 40px rgba(0, 0, 0, 0.8),
+        
+        inset 0 0 40px rgba(0, 0, 0, 0.8);
+    
+
+    margin: 0 auto 30px;
+    position: relative;
+    
+    border-radius: 0;
+}
+
+.game-logo::after {
+    display: none;
+}
+
+h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.5rem;
+    color: #FFF;
+    text-shadow: 2px 2px 0 #000;
+    margin-bottom: 15px;
+}
+
+.final-score {
+    font-size: 1.2rem;
+    color: #FFE4B5;
+    margin-bottom: 25px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    border: 2px solid #8B4513;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.final-score span {
+    display: block;
+    font-size: 2.5rem;
+    color: #FFD700;
+    font-family: 'Fredoka One', cursive;
+    text-shadow: 2px 2px 0 #8B0000;
+    margin-top: 5px;
+}
+
+.big-btn {
+    background: linear-gradient(180deg, #32CD32 0%, #228B22 100%);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #006400, 0 10px 10px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    transition: transform 0.1s;
+}
+
+.big-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #006400, 0 12px 12px rgba(0, 0, 0, 0.3);
+
+}
+
+.big-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #006400, 0 6px 6px rgba(0, 0, 0, 0.3);
+}
+
+#message-overlay {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#message-overlay.show {
+    opacity: 1;
+}

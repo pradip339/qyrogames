@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <base href="/games/monkey-jump/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Monkey Jump | Addictive Jumping Game</title>
+    <meta name="description"
+        content="Help the cute monkey jump as high as possible! Bounce on platforms, collect bananas, and avoid obstacles in Monkey Jump." />
+    <meta name="keywords"
+        content="monkey jump game, jumping monkey, vertical platformer, infinite jumper, casual arcade game, HTML5 jumping game" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="monkey_jump_small.webp">
+    <link rel="stylesheet" href="./style.css" media="all">
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+    <div class="clouds" id="clouds"></div>
+    <div class="vine left"></div>
+    <div class="vine right"></div>
+
+    <div class="container">
+        <div id="preloader">
+            <div class="loader"></div>
+            <p>Loading monkey assets... 🐵</p>
+        </div>
+
+        <canvas id="canvas">
+            Aww, your browser doesn't support HTML5!
+        </canvas>
+
+        <div class="mobile-controls">
+            <button id="btn-left" class="mobile-btn">←</button>
+            <button id="btn-right" class="mobile-btn">→</button>
+        </div>
+
+        <div id="mainMenu">
+            <h1>Monkey Jump</h1>
+            <h3>Help our monkey friend collect bananas!</h3>
+
+            <p class="info">
+                Use
+                <span class="key left">←</span>
+                <span class="key right">→</span>
+                keys to move.
+            </p>
+            <a class="button" href="javascript:init()">Play</a>
+        </div>
+
+        <div id="gameOverMenu">
+            <h2>Game Over!</h2>
+            <h3 id="go_score">You collected 0 bananas!</h3>
+            <a class="button" href="javascript:location.reload()">Try Again</a>
+        </div>
+
+        <div id="scoreBoard">
+            <p id="score"> 0 </p>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

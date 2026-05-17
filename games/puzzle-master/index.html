@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/games/puzzle-master/">
+    <title>Puzzle Master</title>
+    <meta name="description"
+        content="Solve tricky block puzzles and train your brain with Puzzle Master. Fit the pieces perfectly to clear lines and reach a high score." />
+    <meta name="keywords"
+        content="puzzle master game, block puzzle, tricky puzzle game, brain teaser, casual online puzzle, free HTML5 puzzle" />
+    <meta name="robots" content="index, follow" />
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+    <link rel="stylesheet" href="/games/puzzle-master/css/all.min.css">
+    <link rel="icon" href="puzzle_master_small.webp">
+    <link rel="stylesheet" href="/games/puzzle-master/css/slick.css">
+    <link rel="stylesheet" href="/games/puzzle-master/css/style.css">
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+
+    <div class="timer-container" id="timerContainer">
+        <div class="timer-display">
+            <i class="fas fa-clock timer-icon"></i>
+            <span id="timerDisplay">00:00</span>
+        </div>
+    </div>
+    <div class="puzzle-pieces">
+        <div class="floating-piece"></div>
+        <div class="floating-piece"></div>
+        <div class="floating-piece"></div>
+        <div class="floating-piece"></div>
+        <div class="floating-piece"></div>
+        <div class="floating-piece"></div>
+    </div>
+
+    <button class="settings-btn">
+        <i class="fas fa-cog"></i>
+    </button>
+    <div class="preloader">
+        <h1 class="logo">🧩 Puzzle Master</h1>
+        <div class="loading-text">
+            Preparing your puzzle experience
+            <div class="loading-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Loading... 0%</div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="slide" id="slide0"></div>
+    </div>
+
+    <div class="picture-selector">
+        <div class="selector-content">
+            <div class="close-selector"><i class="fas fa-times"></i></div>
+            <h2>Select Image</h2>
+            <div class="picture-options">
+                <div class="picture-option" data-image="/games/puzzle-master/images/pikachu.png">
+                    <img src="/games/puzzle-master/images/pikachu.png" alt="Pikachu">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/bulbasaur.png">
+                    <img src="/games/puzzle-master/images/bulbasaur.png" alt="Bulbasaur">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/charmander.png">
+                    <img src="/games/puzzle-master/images/charmander.png" alt="Charmander">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/squirtle.png">
+                    <img src="/games/puzzle-master/images/squirtle.png" alt="Squirtle">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/eevee.png">
+                    <img src="/games/puzzle-master/images/eevee.png" alt="Eevee">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/dragonite.png">
+                    <img src="/games/puzzle-master/images/dragonite.png" alt="Dragonite">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/mewtwo.png">
+                    <img src="/games/puzzle-master/images/mewtwo.png" alt="Mewtwo">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/gengar.png">
+                    <img src="/games/puzzle-master/images/gengar.png" alt="Gengar">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/snorlax.png">
+                    <img src="/games/puzzle-master/images/snorlax.png" alt="Snorlax">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/rayquaza.png">
+                    <img src="/games/puzzle-master/images/rayquaza.png" alt="Rayquaza">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+
+                <div class="picture-option" data-image="/games/puzzle-master/images/pancham.png">
+                    <img src="/games/puzzle-master/images/pancham.png" alt="Pancham">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/arcanine.png">
+                    <img src="/games/puzzle-master/images/arcanine.png" alt="Arcanine">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option active" data-image="/games/puzzle-master/images/monkey.png">
+                    <img src="/games/puzzle-master/images/monkey.png" alt="Monkey">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/lion.png">
+                    <img src="/games/puzzle-master/images/lion.png" alt="Lion">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/elephant.png">
+                    <img src="/games/puzzle-master/images/elephant.png" alt="Elephant">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="picture-option" data-image="/games/puzzle-master/images/cat.jpg">
+                    <img src="/games/puzzle-master/images/cat.jpg" alt="Cat">
+                    <div class="checkmark"><i class="fas fa-check"></i></div>
+                </div>
+            </div>
+            <button class="start-btn">Start Puzzle</button>
+        </div>
+    </div>
+    <script>
+
+        // Timer functionality
+        let timerInterval;
+        let seconds = 0;
+        const timerContainer = document.getElementById('timerContainer');
+        const timerDisplay = document.getElementById('timerDisplay');
+        timerInterval = setInterval(() => {
+            seconds++;
+            updateTimerDisplay();
+        }, 1000);
+
+        function startTimer() {
+
+            seconds = 0;
+            updateTimerDisplay();
+
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                seconds++;
+                updateTimerDisplay();
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+
+            // Add celebration effect when timer stops
+            timerContainer.style.backgroundColor = '#4CAF50';
+            timerContainer.style.boxShadow = '0 0 20px #4CAF50';
+
+            setTimeout(() => {
+                timerContainer.style.backgroundColor = '';
+                timerContainer.style.boxShadow = '';
+            }, 2000);
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            seconds = 0;
+            updateTimerDisplay();
+            timerContainer.classList.remove('active');
+        }
+
+        function updateTimerDisplay() {
+
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+
+        }
+
+        let progress = 0;
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        // Store current puzzle settings
+        const puzzleSettings = {
+            currentImage: '/games/puzzle-master/images/monkey.png',
+            gridSize: 3
+        };
+        // Initialize puzzle with selected image
+        function initPuzzle(image) {
+            document.querySelector('#slide0').innerHTML = '';
+            puzzleSettings.currentImage = image;
+            new Jigsaw().init({
+                container: '#slide0',
+                image: image,
+                gridSize: puzzleSettings.gridSize
+            });
+        }
+
+        const loadingMessages = [
+            "Initializing puzzle pieces...",
+            "Loading beautiful images...",
+            "Setting up game board...",
+            "Preparing drag & drop...",
+            "Configuring hint system...",
+            "Optimizing for your device...",
+            "Adding final touches...",
+            "Almost ready to play!"
+        ];
+
+        let messageIndex = 0;
+
+        const interval = setInterval(() => {
+            const increment = Math.random() * 15 + 5;
+            progress = Math.min(progress + increment, 100);
+
+            progressFill.style.width = progress + '%';
+            progressText.textContent = `Loading... ${Math.floor(progress)}%`;
+
+            const newMessageIndex = Math.floor((progress / 100) * loadingMessages.length);
+            if (newMessageIndex !== messageIndex && newMessageIndex < loadingMessages.length) {
+                messageIndex = newMessageIndex;
+                document.querySelector('.loading-text').innerHTML = `
+                    ${loadingMessages[messageIndex]}
+                    <div class="loading-dots">
+                        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                    </div>
+                `;
+            }
+
+            if (progress >= 100) {
+                clearInterval(interval);
+                progressFill.style.width = '100%';
+                progressText.textContent = 'Loading... 100%';
+
+                document.querySelector('.loading-text').innerHTML = `Ready to play! 🎉
+                                        <div class="loading-dots">
+                                            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                                        </div>`;
+
+                setTimeout(() => {
+                    document.querySelector('.preloader').style.display = 'none';
+                    document.querySelector('.wrapper').style.display = 'block';
+                    document.querySelector('.timer-container').style.display = 'block';
+
+                    // Start the game with the default image automatically
+                    initPuzzle(puzzleSettings.currentImage);
+
+                    document.body.style.overflow = 'auto';
+                }, 1000);
+            }
+        }, 150);
+
+        document.querySelector('.logo').addEventListener('mouseenter', function () {
+            this.style.transform = 'scale(1.1)';
+            this.style.textShadow = '0 6px 25px rgba(255,255,255,0.4)';
+        });
+
+        document.querySelector('.logo').addEventListener('mouseleave', function () {
+            this.style.transform = 'scale(1)';
+            this.style.textShadow = '0 4px 20px rgba(0,0,0,0.3)';
+        });
+
+        // Show picture selector
+        function showPictureSelector() {
+            document.querySelector('.picture-selector').classList.add('active');
+        }
+
+        // Update selected picture
+        document.querySelectorAll('.picture-option').forEach(option => {
+            option.addEventListener('click', function () {
+                document.querySelectorAll('.picture-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        // Start puzzle button
+        document.querySelector('.start-btn').addEventListener('click', function () {
+            const selectedImage = document.querySelector('.picture-option.active').dataset.image;
+            puzzleSettings.currentImage = selectedImage;
+            document.querySelector('.picture-selector').classList.remove('active');
+            initPuzzle(selectedImage);
+        });
+
+        // Settings button
+        document.querySelector('.settings-btn').addEventListener('click', function () {
+            showPictureSelector();
+        });
+
+        // Close selector button
+        document.querySelector('.close-selector').addEventListener('click', function () {
+            document.querySelector('.picture-selector').classList.remove('active');
+        });
+    </script>
+    <script src="/games/puzzle-master/js/jquery-3.2.1.min.js"></script>
+    <script src="/games/puzzle-master/js/slick.min.js"></script>
+    <script src="/games/puzzle-master/js/jigsaw.js"></script>
+    <script src="/games/puzzle-master/js/script.js"></script>
+
+</body>
+
+</html>

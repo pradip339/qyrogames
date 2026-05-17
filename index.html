@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <script>(function(){var p=location.pathname,l=p.toLowerCase();if(p!==l)location.replace(l+location.search+location.hash);})();</script>
+    <base href="/">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Qyro Games - Free Online HTML5 Games | Play Instantly</title>
+    <meta name="description"
+        content="Play the best free online HTML5 games instantly on Qyro Games. No downloads required. Enjoy action, puzzle, racing games and more on mobile and desktop." />
+    <meta name="keywords"
+        content="free online games, HTML5 games, play games online, browser games, action games, puzzle games, mobile games, unblocked games, Qyro Games" />
+    <meta name="robots" content="index, follow" />
+    <link id="canonicalTag" rel="canonical" href="https://www.qyrogames.com/">
+    <script>document.getElementById('canonicalTag').href = "https://www.qyrogames.com" + window.location.pathname;</script>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Qyro Games">
+    <meta property="og:title" content="Qyro Games - Free Online HTML5 Games | Play Instantly">
+    <meta property="og:description" content="Play the best free online HTML5 games instantly on Qyro Games. No downloads required. Enjoy action, puzzle, arcade games and more on mobile and desktop.">
+    <meta property="og:url" content="https://www.qyrogames.com/">
+    <meta property="og:image" content="https://www.qyrogames.com/website_icon.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Qyro Games - Free Online HTML5 Games | Play Instantly">
+    <meta name="twitter:description" content="Play the best free online HTML5 games instantly on Qyro Games. No downloads required. Enjoy action, puzzle, arcade games and more on mobile and desktop.">
+    <meta name="twitter:image" content="https://www.qyrogames.com/website_icon.webp">
+    <link rel="icon" href="website_icon.webp" type="image/webp">
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6', // blue-500
+                        'primary-dark': '#2563eb', // blue-600
+                        'primary-foreground': '#ffffff',
+                        secondary: '#0ea5e9', // sky-500
+                        'secondary-foreground': '#ffffff',
+                        background: '#020617', // slate-950
+                        surface: 'rgba(255, 255, 255, 0.05)',
+                        card: 'rgba(255, 255, 255, 0.03)',
+                        border: 'rgba(255, 255, 255, 0.1)',
+                        muted: '#94a3b8',
+                        'muted-foreground': '#cbd5e1',
+                        footer: '#020617',
+                    },
+                    boxShadow: {
+                        'glow-sm': '0 0 8px rgba(59, 130, 246, 0.2)',
+                        'glow-md': '0 0 15px rgba(59, 130, 246, 0.3)',
+                        'glow-lg': '0 0 25px rgba(59, 130, 246, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        html,
+        body {
+            background-color: #020617;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        body {
+            background-image: radial-gradient(circle at top right, #0f172a, #020617), url('data:image/svg+xml,%3Csvg width="20" height="20" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="2" cy="2" r="1.5" fill="rgba(255,255,255,0.05)"/%3E%3C/svg%3E');
+        }
+
+        @media (min-width: 768px) {
+            body {
+                background-attachment: fixed;
+            }
+        }
+
+        /* Custom scrollbar for a native glassy feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(59, 130, 246, 0.5);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(59, 130, 246, 0.8);
+        }
+    </style>    <script src="/analytics.js"></script>
+</head>
+
+<body class="text-slate-200 min-h-screen flex flex-col antialiased">
+
+
+    <nav class="sticky top-0 z-[100] w-full bg-background/80 backdrop-blur-xl border-b border-white/10 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3 decoration-none">
+                <span
+                    class="text-primary font-extrabold text-3xl tracking-tight drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+                    <span class="italic text-white">QYRO</span> GAMES
+                </span>
+            </a>
+
+
+            <div id="desktopCategories" class="hidden md:flex items-center gap-2 flex-wrap">
+
+            </div>
+
+
+            <button id="menuBtn" class="md:hidden text-white p-1">
+                <i data-lucide="menu" class="w-8 h-8" id="menuIcon"></i>
+                <i data-lucide="x" class="w-8 h-8 hidden" id="closeIcon"></i>
+            </button>
+        </div>
+
+
+        <div id="mobileMenuOverlay"
+            class="fixed inset-0 top-[73px] bg-black/50 backdrop-blur-xl z-[90] opacity-0 pointer-events-none transition-opacity duration-300">
+        </div>
+
+
+        <div id="mobileMenu"
+            class="md:hidden p-6 pt-6 flex flex-col items-center justify-start gap-4 bg-background/80 backdrop-blur-3xl border-t border-white/10 absolute top-full left-0 w-full h-[calc(100vh-73px)] overflow-y-auto z-[100] shadow-2xl transition-all duration-300 ease-in-out opacity-0 pointer-events-none -translate-y-4">
+
+        </div>
+    </nav>
+
+
+    <main id="mainContent" class="flex-1 relative z-10 transition-all duration-300">
+        <section class="max-w-7xl mx-auto px-4 md:px-12 lg:px-20 py-12">
+
+            <div class="flex flex-col items-center justify-center text-center mb-12 space-y-4">
+                <h1 class="text-3xl md:text-6xl font-extrabold text-white tracking-tight drop-shadow-md">
+                    Play <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-primary">Awesome
+                        Games</span>
+                </h1>
+                <p class="text-muted-foreground text-sm md:text-lg max-w-2xl px-2">Dive into our collection of free
+                    HTML5 games. No
+                    downloads, just instant glassy fun.</p>
+            </div>
+
+            <div class="border-b border-white/10 mb-8 w-full"></div>
+            <div id="gamesGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+
+            </div>
+
+        </section>
+    </main>
+
+
+    <footer id="footerContent"
+        class="bg-background/90 backdrop-blur-md border-t border-white/10 mt-auto relative z-10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 py-8 md:py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10">
+
+                <div class="md:col-span-1">
+                    <h3
+                        class="text-2xl font-extrabold text-white mb-4 tracking-tight drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                        <span class="italic text-primary">QYRO</span> GAMES
+                    </h3>
+                    <p class="text-muted text-sm leading-relaxed mb-6">
+                        Your premium destination for the best free online HTML5 games. Play instantly on mobile, tablet,
+                        or desktop with an immersive glassy experience!
+                    </p>
+                </div>
+
+
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-5 border-b border-white/10 pb-2 inline-block">Company
+                    </h4>
+                    <ul class="space-y-3 text-sm text-muted">
+                        <li><a href="/about-us"
+                                class="hover:text-primary hover:translate-x-1 inline-block transition-transform duration-300">About
+                                Us</a></li>
+                        <li><a href="/contact-us"
+                                class="hover:text-primary hover:translate-x-1 inline-block transition-transform duration-300">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+
+
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-5 border-b border-white/10 pb-2 inline-block">Support
+                    </h4>
+                    <ul class="space-y-3 text-sm text-muted">
+                        <li><a href="/faq"
+                                class="hover:text-primary hover:translate-x-1 inline-block transition-transform duration-300">FAQ</a>
+                        </li>
+                        <li><a href="/how-to-play"
+                                class="hover:text-primary hover:translate-x-1 inline-block transition-transform duration-300">How
+                                to Play</a></li>
+
+                    </ul>
+                </div>
+
+
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-5 border-b border-white/10 pb-2 inline-block">Legal</h4>
+                    <ul class="space-y-3 text-sm text-muted">
+                        <li><a href="/privacy-policy"
+                                class="hover:text-primary hover:translate-x-1 inline-block transition-transform duration-300">Privacy
+                                Policy</a></li>
+                        <li><a href="/terms-conditions"
+                                class="hover:text-primary hover:translate-x-1 inline-block transition-transform duration-300">Terms
+                                & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/10 flex items-center justify-center">
+                <p class="text-muted text-sm text-center">
+                    &copy; 2026 QYRO GAMES - All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="games.js"></script>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mainContent = document.getElementById('mainContent');
+        const footerContent = document.getElementById('footerContent');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('opacity-0');
+
+            if (isHidden) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+
+                mobileMenuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenuOverlay.classList.add('opacity-100', 'pointer-events-auto');
+
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+
+                // Deep blur effect on index content
+                if (mainContent) mainContent.classList.add('blur-xl', 'pointer-events-none', 'opacity-50');
+                if (footerContent) footerContent.classList.add('blur-xl', 'pointer-events-none', 'opacity-50');
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+
+                mobileMenuOverlay.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenuOverlay.classList.remove('opacity-100', 'pointer-events-auto');
+
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+
+                // Remove blur effect
+                if (mainContent) mainContent.classList.remove('blur-xl', 'pointer-events-none', 'opacity-50');
+                if (footerContent) footerContent.classList.remove('blur-xl', 'pointer-events-none', 'opacity-50');
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileMenuOverlay.addEventListener('click', toggleMenu);
+    </script>
+</body>
+
+</html>

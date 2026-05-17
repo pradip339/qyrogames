@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/games/bubble-shooter/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bubble Shooter | Classic Arcade Game</title>
+    <meta name="description"
+        content="Play the classic Bubble Shooter game for free! Match bubbles of the same color to pop them and clear the board. Enjoy endless fun!" />
+    <meta name="keywords"
+        content="bubble shooter, classic bubble shooter, match 3 puzzle, colored bubbles game, free online bubble shooter, HTML5 games" />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="bubble_shooter_small.webp">
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div class="top-bar">
+            <div class="controls-group">
+                <button id="pause-btn" class="icon-btn">❚❚</button>
+                <button id="sound-btn" class="icon-btn">🔊</button>
+            </div>
+            <div class="level-display">
+                <div class="stars">
+                    <span>★</span><span>★</span><span>★</span>
+                </div>
+                <div class="level-text">Level <span id="level">1</span></div>
+            </div>
+            <div class="score-display">
+                <span id="score">0</span>
+            </div>
+        </div>
+
+
+        <div id="game-container">
+            <canvas id="gameCanvas"></canvas>
+
+
+            <div id="message-overlay" class="hidden"></div>
+        </div>
+
+
+        <div class="bottom-bar">
+            <div class="launcher-area">
+                <div class="swap-indicator" id="swap-btn">
+                    <div class="swap-circle">⟳</div>
+                    <span>Swap</span>
+                </div>
+
+                <div class="moves-left">
+                    <span>Moves</span>
+                    <span id="moves">40</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="start-screen" class="screen">
+            <div class="wood-panel">
+                <h1>Bubble<br>Shooter</h1>
+                <button id="start-btn" class="big-btn">PLAY</button>
+            </div>
+        </div>
+
+        <div id="game-over-screen" class="screen hidden">
+            <div class="wood-panel">
+                <h2 id="end-title">Level Complete!</h2>
+                <div class="final-score">Score: <span id="final-score">0</span></div>
+                <button id="restart-btn" class="big-btn">CONTINUE</button>
+            </div>
+        </div>
+
+        <div id="pause-screen" class="screen hidden">
+            <div class="wood-panel">
+                <h2>PAUSED</h2>
+                <button id="resume-btn" class="big-btn">RESUME</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

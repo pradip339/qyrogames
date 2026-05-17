@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/games/guess-the-quiz/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Guess the Quiz! | Ultimate Fun Challenge</title>
+    <meta name="description"
+        content="Challenge your knowledge with Guess the Quiz! Answer fun trivia questions across various categories and prove you are a trivia master." />
+    <meta name="keywords"
+        content="guess the quiz, trivia game, knowledge quiz, general knowledge, fun trivia challenge, online quiz game" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description"
+        content="Test your knowledge with the ultimate Guess the Quiz game! Fun animals, colors, and fruits icons in a beautiful responsive interface.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/games/guess-the-quiz/style.css">
+    <link rel="icon" href="guess_the_quiz_small.webp">
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+
+    <div class="bg-backdrop">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+
+    <div class="preloader" id="preloader">
+        <div class="loader-content">
+            <div class="spinner-container">
+                <div class="spinner-core"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <div class="loading-text">Preparing the Fun...</div>
+            <div class="loading-animals">
+                <div class="loading-emoji">🐶</div>
+                <div class="loading-emoji">🍎</div>
+                <div class="loading-emoji">🌈</div>
+            </div>
+        </div>
+    </div>
+
+
+    <main class="game-wrapper" id="gameContainer" style="display: none;">
+        <div class="glass-card">
+            <header class="game-header">
+    <base href="/games/guess-the-quiz/">
+                <h1 class="game-title">Guess the Quiz!</h1>
+                <p class="game-subtitle">Explore & Learn with Emojis</p>
+            </header>
+
+            <div class="stats-bar">
+                <div class="stat-pill score-pill">
+                    <span class="label">Score</span>
+                    <span class="value" id="score">0</span>
+                </div>
+                <div class="stat-pill question-pill">
+                    <span class="label">Progress</span>
+                    <span class="value"><span id="questionNum">1</span>/50</span>
+                </div>
+            </div>
+
+            <div class="game-main-content">
+                <div class="question-stage" id="questionArea">
+                    <div class="category-tag" id="category">Animal</div>
+                    <div class="emoji-display" id="questionEmoji">🐶</div>
+                    <h2 class="question-prompt" id="questionText">What animal is this?</h2>
+                </div>
+
+                <div class="options-layout" id="optionsGrid">
+                    <button class="quiz-option" onclick="selectAnswer(0); playSound('click')">Dog</button>
+                    <button class="quiz-option" onclick="selectAnswer(1); playSound('click')">Cat</button>
+                    <button class="quiz-option" onclick="selectAnswer(2); playSound('click')">Bird</button>
+                    <button class="quiz-option" onclick="selectAnswer(3); playSound('click')">Fish</button>
+                </div>
+
+                <div class="interaction-feedback" id="feedback"></div>
+                <button class="action-btn next-action hidden" id="nextBtn" onclick="nextQuestion()">Continue <span
+                        class="icon">➜</span></button>
+
+                <div class="results-screen hidden" id="finalScore">
+                    <div class="trophy-icon">🏆</div>
+                    <h2 class="results-title">Great Hunt!</h2>
+                    <p class="results-summary">You mastered <span id="finalScoreText">0</span> items</p>
+                    <p class="results-msg" id="encouragement">You're a superstar!</p>
+                    <button class="action-btn restart-action" onclick="restartGame()">Play Again <span
+                            class="icon">↺</span></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/games/guess-the-quiz/script.js"></script>
+</body>
+
+</html>

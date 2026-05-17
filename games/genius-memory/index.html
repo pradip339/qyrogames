@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/games/genius-memory/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genius Memory Game 2025</title>
+    <meta name="description"
+        content="Test your memory and logic with Genius Memory Game 2025! Match pairs, remember patterns, and train your brain." />
+    <meta name="keywords"
+        content="memory game, brain training game, genius memory 2025, card matching game, logic puzzle, mental workout" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="genius_momory_small.webp">
+    <link href="./style.css" rel="stylesheet">
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+
+    <div class="preloader" id="preloader">
+
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+
+        <div class="memory-loader">
+            <div class="loader-card">
+                <div class="loader-card-face loader-card-back"></div>
+                <div class="loader-card-face loader-card-front">🌟</div>
+            </div>
+            <div class="loader-card">
+                <div class="loader-card-face loader-card-back"></div>
+                <div class="loader-card-face loader-card-front">🎯</div>
+            </div>
+            <div class="loader-card">
+                <div class="loader-card-face loader-card-back"></div>
+                <div class="loader-card-face loader-card-front">🎨</div>
+            </div>
+            <div class="loader-card">
+                <div class="loader-card-face loader-card-back"></div>
+                <div class="loader-card-face loader-card-front">🎭</div>
+            </div>
+        </div>
+
+
+        <div class="spinner-container">
+            <div class="spinner-glow"></div>
+            <div class="spinner"></div>
+        </div>
+
+
+        <div class="preloader-text">GENIUS MEMORY</div>
+        <div class="preloader-subtitle">Preparing your ultimate brain training experience</div>
+
+
+        <div class="loading-progress">
+            <div class="progress-bar"></div>
+        </div>
+
+
+        <div class="loading-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+
+    <div class="sound-toggle" id="soundToggle" title="Toggle Sound">
+        🔊
+    </div>
+
+
+    <div class="game-container" id="gameContainer">
+
+        <div class="header">
+            <h1 class="title">GENIUS MEMORY</h1>
+            <p class="subtitle">Challenge your mind with the ultimate memory game</p>
+        </div>
+
+
+        <div class="difficulty-selector">
+            <div class="difficulty-title">Choose Your Challenge</div>
+            <div class="difficulty-buttons">
+                <button class="difficulty-btn active" data-level="4x4">Easy (4x4)</button>
+                <button class="difficulty-btn" data-level="5x5">Medium (5x5)</button>
+                <button class="difficulty-btn" data-level="6x6">Hard (6x6)</button>
+            </div>
+        </div>
+
+
+        <div class="controls">
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-value" id="moves">0</span>
+                    <span class="stat-label">Moves</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="time">00:00</span>
+                    <span class="stat-label">Time</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="matches">0</span>
+                    <span class="stat-label">Matches</span>
+                </div>
+            </div>
+            <div class="control-buttons">
+                <button class="btn btn-primary" id="restartBtn">New Game</button>
+            </div>
+        </div>
+
+
+        <div class="game-board grid-4x4" id="gameBoard"></div>
+    </div>
+
+
+    <div class="win-modal" id="winModal">
+        <div class="win-content">
+            <div class="win-title">Congratulations! 🎉</div>
+            <p>You've completed the challenge!</p>
+            <div class="win-stats">
+                <div class="win-stat">
+                    <div class="win-stat-value" id="winMoves">0</div>
+                    <div class="win-stat-label">Moves</div>
+                </div>
+                <div class="win-stat">
+                    <div class="win-stat-value" id="winTime">00:00</div>
+                    <div class="win-stat-label">Time</div>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="playAgainBtn">Play Again</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="./script.js"></script>
+
+</body>
+
+</html>

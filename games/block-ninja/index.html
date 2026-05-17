@@ -1,0 +1,78 @@
+﻿<html>
+
+<head>
+    <base href="/games/block-ninja/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Block Ninja | A Fruit Ninja Clone</title>
+  <meta name="description"
+    content="Play Block Ninja, an exciting fruit ninja style slice action game. Slice the blocks, avoid bombs, and achieve the highest score!" />
+  <meta name="keywords"
+    content="block ninja game, fruit ninja clone, slice game, action game, HTML5 block slicing, unblocked games, play block ninja free" />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/games/block-ninja/block_ninja_small.webp">
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+
+  <canvas id="c"></canvas>
+
+  <div class="hud">
+    <div class="hud__score">
+      <div class="score-lbl"></div>
+      <div class="cube-count-lbl"></div>
+    </div>
+    <div class="controls-top-right">
+      <div class="mute-btn">
+        <svg class="sound-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+        </svg>
+        <svg class="sound-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+          style="display: none;">
+          <path
+            d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51c.66-1.24 1.03-2.65 1.03-4.15 0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+        </svg>
+      </div>
+      <div class="pause-btn">
+        <div></div>
+      </div>
+    </div>
+    <div class="slowmo">
+      <div class="slowmo__bar"></div>
+    </div>
+
+    <audio id="hitSound" src="assets/hit.mp3" preload="auto"></audio>
+    <audio id="gameOverSound" src="assets/gameover.mp3" preload="auto"></audio>
+    <audio id="winSound" src="assets/win.mp3" preload="auto"></audio>
+  </div>
+
+  <div class="menus">
+    <div class="menu menu--main">
+      <img src="./block_ninja_small.webp" alt="Block Ninja Logo" class="game-logo"
+        style="width: 120px; height: 120px; border-radius: 10%; margin-bottom: 20px;">
+      <h1>Block Ninja</h1>
+      <button type="button" class="play-normal-btn">PLAY GAME</button>
+      <button type="button" class="play-casual-btn">CASUAL MODE</button>
+
+    </div>
+    <div class="menu menu--pause">
+      <h2>Paused</h2>
+      <button type="button" class="resume-btn">RESUME GAME</button>
+      <button type="button" class="menu-btn--pause">MAIN MENU</button>
+    </div>
+    <div class="menu menu--score">
+      <h2>Game Over</h2>
+      <h3>Your Score:</h3>
+      <div class="final-score-lbl"></div>
+      <div class="high-score-lbl"></div>
+      <button type="button" class="play-again-btn">PLAY AGAIN</button>
+      <button type="button" class="menu-btn--score">MAIN MENU</button>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/games/hexa-match/">
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HEX-MATCH | Arcade Challenge - Fast-Paced Puzzle & Reflex Game</title>
+    <meta name="description"
+        content="Rotate the hexagon and match colors to clear blocks in HEX-MATCH. A fast-paced, reflex-testing puzzle arcade game." />
+    <meta name="keywords"
+        content="hexa match game, hex puzzle, arcade reflex challenge, fast paced puzzle, hexagon block game, color matching arcade" />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" type="text/css" href="./style.css" media="all">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="hexa_match_small.webp">
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="loader-hexagon"></div>
+        <div class="loading-text">LOADING HEXA-MATCH</div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="ui-layer">
+            <button id="sound-toggle">🔊 SOUND ON</button>
+            <div id="score-display">SCORE: 0</div>
+
+            <div id="menu-screen" class="overlay active">
+                <div class="overlay-content">
+                    <h1>HEXA-MATCH</h1>
+                    <p>Match colors to clear the sides!</p>
+                    <button id="start-btn">START GAME</button>
+                </div>
+            </div>
+
+            <div id="game-over-screen" class="overlay">
+                <div class="overlay-content">
+                    <h2>GAME OVER</h2>
+                    <div id="final-score">Score: 0</div>
+                    <div id="high-score">Best: 0</div>
+                    <button id="restart-btn">RETRY</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./javascript.js"></script>
+
+</body>
+
+</html>

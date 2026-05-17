@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="/games/water-sort-puzzle/">
+    <title>Water Sort Puzzle | Logic Brain Game</title>
+    <meta name="description"
+        content="Sort colored water into the correct tubes in this fun logical brain puzzle. Water Sort Puzzle is the ultimate relaxing color matching game." />
+    <meta name="keywords"
+        content="water sort puzzle, liquid sorting game, color matching tube puzzle, logical brain game, relaxing puzzle, HTML5 water game" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/games/water-sort-puzzle/style.css">
+    <link rel="icon" href="water_sort_puzzle_small.webp">
+
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+    <div class="bg-animation">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="loader-tube">
+                <div class="loader-water"></div>
+            </div>
+            <div class="loader-tube">
+                <div class="loader-water"></div>
+            </div>
+            <div class="loader-tube">
+                <div class="loader-water"></div>
+            </div>
+        </div>
+        <p>Mixing Colors...</p>
+    </div>
+
+    <div id="game">
+        <div id="sound-toggle" onclick="ToggleSound();">🔊</div>
+
+        <div id="menu">
+            <h1 id="menu-heading">WATER SORT PUZZLE</h1>
+            <div class="lvl" id="easy" onclick="OpenLevel(0);">EASY</div>
+            <div class="lvl" id="medium" onclick="OpenLevel(1);">MEDIUM</div>
+            <div class="lvl" id="hard" onclick="OpenLevel(2);">HARD</div>
+            <div class="lvl" id="very-hard" onclick="OpenLevel(3)">VERY HARD</div>
+            <div id="rules-btn" onclick="ShowRules();">HOW TO PLAY</div>
+        </div>
+
+        <div id="level"></div>
+
+        <div id="rules-page">
+            <div id="rules">
+                <div id="rules-heading">HOW TO PLAY</div>
+                <div id="rules-text">
+                    <p>Welcome to Water Sort Puzzle! Your goal is to sort the colored liquids so that each test tube
+                        contains only one color.</p>
+                    <br>
+                    <p><strong>How to Play:</strong></p>
+                    <ul>
+                        <li>Tap on a test tube to select it</li>
+                        <li>Tap on another test tube to transfer the liquid</li>
+                        <li>You can only pour liquid into an empty tube or onto the same color</li>
+                        <li>Try to solve the puzzle in as few moves as possible</li>
+                    </ul>
+                    <br>
+                    <p><strong>Tips:</strong></p>
+                    <ul>
+                        <li>Plan your moves ahead</li>
+                        <li>Use empty tubes as temporary storage</li>
+                        <li>Try to create complete sets of colors</li>
+                    </ul>
+                    <br>
+                    <p>Good luck and have fun sorting!</p>
+                </div>
+                <div id="back" onclick="HideRules();">BACK</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/games/water-sort-puzzle/script.js"></script>
+</body>
+
+</html>

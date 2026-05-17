@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/games/golden-fighter/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Golden Fighter | Epic Action Game</title>
+    <meta name="description"
+        content="Become the ultimate warrior in Golden Fighter! Battle enemies, upgrade your character, and conquer challenging boss fights in this epic action adventure." />
+    <meta name="keywords"
+        content="golden fighter game, action fighting game, online battle game, free fighting game, beat em up, browser action" />
+    <meta name="robots" content="index, follow" />
+    <link href="./style.css" rel="stylesheet">
+    <link rel="icon" href="golden_fighter_small.webp">
+
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="loading-text">Loading Golden Fighter...</div>
+        <div class="loading-bar">
+            <div class="loading-fill"></div>
+        </div>
+    </div>
+
+
+    <div id="game-container">
+
+        <canvas id="game-canvas"></canvas>
+
+
+        <div class="ui-overlay">
+            <div class="health-bar">
+                <div id="health-fill" class="health-fill"></div>
+            </div>
+            <div id="score">0</div>
+        </div>
+
+
+        <div class="controls-ui">
+            <button id="sound-toggle" class="control-btn" aria-label="Toggle Sound">
+                <svg id="sound-icon-on" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </svg>
+                <svg id="sound-icon-off" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                </svg>
+            </button>
+        </div>
+
+
+        <div id="start-screen" class="screen">
+            <h1>✈️ Golden Fighter</h1>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem; text-align: center;">
+                Use arrow keys or mouse to move<br>
+                Space or click to shoot
+            </p>
+            <button id="start-button">Start Game</button>
+        </div>
+
+
+        <div id="game-over-screen" class="screen" style="display: none;">
+            <h2>Game Over</h2>
+            <p style="margin-bottom: 1rem; font-size: 1.5rem;">Final Score: <span id="final-score">0</span></p>
+            <button id="restart-button">Play Again</button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

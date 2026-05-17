@@ -1,0 +1,20 @@
+# Version Control
+.git/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ID & Editor files
+.vscode/
+.idea/
+*.swp
+*.log
+
+# Project specific
+tmp/
+node_modules/
+dist/
+build/
+.env
