@@ -237,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const exemptPages = ['about-us', 'privacy-policy', 'terms-conditions', 'contact-us', 'faq', 'how-to-play', 'details', '404'];
             if (allowedCategories.some(c => c.toLowerCase() === pathCat.toLowerCase())) {
                 catParam = pathCat.toLowerCase();
-            } else if (!window.location.pathname.endsWith('.html') && !exemptPages.includes(pathCat.toLowerCase())) {
+            } else if (!window.location.pathname.includes('.') && !exemptPages.includes(pathCat.toLowerCase())) {
                 window.location.href = "/404";
                 return;
             }
